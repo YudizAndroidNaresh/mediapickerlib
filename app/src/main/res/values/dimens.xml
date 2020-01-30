@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="txt_12sp">@dimen/_9sdp</dimen>
+    <dimen name="txt_18sp">@dimen/_14sdp</dimen>
+
+
+    <dimen name="screen_padding">@dimen/_12dp</dimen>
+
+    <dimen name="_1dp">@dimen/_1sdp</dimen>
+    <dimen name="_3dp">@dimen/_2sdp</dimen>
+    <dimen name="_4dp">@dimen/_3sdp</dimen>
+    <dimen name="_5dp">@dimen/_4sdp</dimen>
+    <dimen name="_6dp">@dimen/_5sdp</dimen>
+    <dimen name="_8dp">@dimen/_6sdp</dimen>
+    <dimen name="_10dp">@dimen/_8sdp</dimen>
+    <dimen name="_12dp">@dimen/_9sdp</dimen>
+    <dimen name="_13dp">@dimen/_10sdp</dimen>
+    <dimen name="_14dp">@dimen/_11sdp</dimen>
+    <dimen name="_15dp">@dimen/_12sdp</dimen>
+    <dimen name="_24dp">@dimen/_18sdp</dimen>
+    <dimen name="_25dp">@dimen/_19sdp</dimen>
+    <dimen name="_26dp">@dimen/_20sdp</dimen>
+    <dimen name="_40dp">@dimen/_31sdp</dimen>
+    <dimen name="_62dp">@dimen/_48sdp</dimen>
+    <dimen name="_72dp">@dimen/_56sdp</dimen>
+    <dimen name="_90dp">@dimen/_69sdp</dimen>
+    <dimen name="_130dp">@dimen/_100sdp</dimen>
+
+
+    <dimen name="frames_video_height">62dp</dimen>
+    <dimen name="video_view_height">300dp</dimen>
+</resources>

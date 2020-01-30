@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+                name="click"
+                type="android.view.View.OnClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite">
+
+        <LinearLayout
+                android:id="@+id/lay_toolbar"
+                android:layout_width="0dp"
+                android:layout_height="?attr/actionBarSize"
+                android:elevation="@dimen/_4dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                    android:id="@+id/lay_unselected_mode"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/btn_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:padding="@dimen/screen_padding"
+                        android:tint="@color/colorAccent"
+                        android:onClick="@{(v) -> click.onClick(v)}"
+                        app:srcCompat="@drawable/ic_btn_back" />
+
+                <TextView
+                        android:id="@+id/tv_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:paddingEnd="@dimen/screen_padding"
+                        android:text="@string/select_media"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/txt_18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/lay_selected_mode"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimary"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/btn_cross"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/screen_padding"
+                        android:tint="@color/colorWhite"
+                        android:onClick="@{(v) -> click.onClick(v)}"
+                        app:srcCompat="@drawable/ic_cross" />
+
+                <TextView
+                        android:id="@+id/tv_selection_count"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:paddingEnd="@dimen/screen_padding"
+                        android:text="@string/select_media"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/txt_18sp" />
+
+                <TextView
+                        android:id="@+id/btn_ok"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:padding="@dimen/screen_padding"
+                        android:text="@string/ok"
+                        android:onClick="@{(v) -> click.onClick(v)}"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/txt_18sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/lay_media_not_found"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/screen_padding"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lay_toolbar">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no_media_found"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/txt_18sp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_26dp"
+                    app:srcCompat="@drawable/ic_sad_face" />
+
+        </LinearLayout>
+
+        <View
+                android:id="@+id/view"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_media_list"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_marginRight="@dimen/_10dp"
+                tools:spanCount="@integer/span_count"
+                tools:listitem="@layout/row_media"
+                android:overScrollMode="never"
+                android:clipToPadding="false"
+                tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lay_toolbar" />
+
+        <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminateTint="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lay_toolbar" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

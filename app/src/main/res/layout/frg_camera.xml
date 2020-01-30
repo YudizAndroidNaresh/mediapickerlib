@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="click"
+                type="android.view.View.OnClickListener" />
+
+        <variable
+                name="isBackLens"
+                type="Boolean" />
+
+        <variable
+                name="isImageCapture"
+                type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/root_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TextureView
+                android:id="@+id/view_finder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        <LinearLayout
+                android:id="@+id/lay_toolbar"
+                android:layout_width="0dp"
+                android:layout_height="?attr/actionBarSize"
+                android:elevation="@dimen/_4dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btn_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:onClick="@{(v) -> click.onClick(v)}"
+                    android:padding="@dimen/screen_padding"
+                    android:tint="@color/colorAccent"
+                    app:srcCompat="@drawable/ic_btn_back" />
+
+        </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btn_send"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_12dp"
+                android:layout_marginBottom="@dimen/_40dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:onClick="@{(v) -> click.onClick(v)}"
+                android:visibility="gone"
+                app:fabSize="normal"
+                app:layout_constraintBottom_toBottomOf="@id/rv_media"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_send"
+                app:tint="@color/colorWhite"
+                tools:visibility="visible" />
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_media"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_62dp"
+                android:layout_marginBottom="@dimen/_25dp"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                android:padding="@dimen/_3dp"
+                android:visibility="gone"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toTopOf="@id/btn_capture"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:reverseLayout="true"
+                tools:listitem="@layout/row_multi_selection_media"
+                tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btn_capture"
+                android:layout_width="@dimen/_72dp"
+                android:layout_height="@dimen/_72dp"
+                android:layout_margin="@dimen/_24dp"
+                android:background="@drawable/selector_capture"
+                android:onClick="@{(v) -> click.onClick(v)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/drw_white_oval" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btn_switch_mode"
+                android:layout_width="@dimen/_40dp"
+                android:layout_height="@dimen/_40dp"
+                android:layout_marginStart="@dimen/screen_padding"
+                android:onClick="@{(v) -> click.onClick(v)}"
+                android:padding="@dimen/_6dp"
+                tools:srcCompat="@drawable/ic_camera"
+                android:src="@{isImageCapture ? @drawable/ic_video : @drawable/ic_camera}"
+                app:layout_constraintBottom_toBottomOf="@id/btn_capture"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/btn_capture" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btn_switch_camera"
+                android:layout_width="@dimen/_40dp"
+                android:layout_height="@dimen/_40dp"
+                android:layout_marginEnd="@dimen/screen_padding"
+                android:onClick="@{(v) -> click.onClick(v)}"
+                android:padding="@dimen/_6dp"
+                tools:srcCompat="@drawable/ic_camera_rear"
+                android:src="@{isBackLens ? @drawable/ic_camera_front : @drawable/ic_camera_rear}"
+                app:layout_constraintBottom_toBottomOf="@id/btn_capture"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/btn_capture" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

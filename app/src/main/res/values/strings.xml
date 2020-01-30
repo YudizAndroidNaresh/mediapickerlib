@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name">MediaPickerLib</string>
+    <string name="please_wait">Please wait...</string>
+
+    <string name="no_media_found">Media Not Found</string>
+    <string name="select_media">Select media</string>
+    <string name="select_image">Select image</string>
+    <string name="select_video">Select video</string>
+    <string name="ok">OK</string>
+
+    <!--Image selection dialog-->
+    <string name="select_from_gallery">Select from Gallery</string>
+    <string name="select_from_camera">Select from Camera</string>
+
+    <string name="pix_recent">Recent</string>
+    <string name="pix_last_month">Last Month</string>
+    <string name="pix_last_week">Last Week</string>
+    <string name="image">Image</string>
+    <string name="video">Video</string>
+    <string name="media">Media</string>
+    <string name="you_cant_select_more_than">You Can\'t select more than</string>
+    <string name="you_cant_capture_more_than">You Can\'t capture more than</string>
+    <string name="size_of">size of</string>
+
+
+    //crop image screen
+    <string name="crop_image_activity_title" />
+    <string name="crop_image_menu_rotate_left">Rotate counter clockwise</string>
+    <string name="crop_image_menu_rotate_right">Rotate</string>
+    <string name="crop_image_menu_crop">Crop</string>
+    <string name="crop_image_menu_flip">Flip</string>
+    <string name="crop_image_menu_flip_horizontally">Flip horizontally</string>
+    <string name="crop_image_menu_flip_vertically">Flip vertically</string>
+
+    <string name="pick_image_intent_chooser_title">Select source</string>
+
+    <string name="crop_image_activity_no_permissions">Cancelling, required permissions are not granted</string>
+
+    <string-array name="array_source_type">
+        <item>Camera</item>
+        <item>Gallery</item>
+        <item>Both</item>
+    </string-array>
+
+    <string-array name="array_media_type">
+        <item>Image</item>
+        <item>Video</item>
+        <item>Both</item>
+    </string-array>
+
+    <string-array name="array_selection_type">
+        <item>Single</item>
+        <item>Multiple</item>
+    </string-array>
+
+
+    //Camera 2 Fragment
+    <string name="permission_pending_camera_storage_microphone"><![CDATA[Goto Settings > Apps > DropApp > Permissions and allow Camera, Storage & Microphone permission.]]></string>
+    <string name="permission_pending_camera">Goto Settings > Apps > Drop > Permissions and allow CAMERA permission.</string>
+    <string name="permission_pending_storage">Goto Settings > Apps > Drop > Permissions and allow STORAGE permission.</string>
+    <string name="permission_pending_microphone">Goto Settings > Apps > Drop > Permissions and allow MICROPHONE permission.</string>
+    <string name="permission_pending_contact">Goto Settings > Apps > Drop > Permissions and allow CONTACT permission.</string>
+    <string name="settings">Settings</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
+
+
+    <string name="upload">Upload</string>
+
+    <string name="select_video_text">Select 1 min video</string>
+    <string name="video_length_validation">Video should be of minimum 3 seconds</string>
+    <string name="app_provider">com.demo.videotrimmer.provider</string>
+    <string name="video_trimmer">Video Trimmer</string>
+
+    <string name="save_it">Do you want to save</string>
+    <string name="save">Save</string>
+    <string name="camera_hint">Hold for video, tap for photo</string>
+
+</resources>

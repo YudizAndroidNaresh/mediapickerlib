@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="click"
+                type="android.view.View.OnClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorBlack"
+            tools:context=".activity.PreviewAct">
+
+        <androidx.viewpager.widget.ViewPager
+                android:id="@+id/view_pager"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lay_toolbar" />
+
+        <LinearLayout
+                android:id="@+id/lay_toolbar"
+                android:layout_width="0dp"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimary"
+                android:elevation="@dimen/_4dp"
+                android:orientation="horizontal"
+                android:paddingEnd="@dimen/_6dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btn_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:onClick="@{(v) -> click.onClick(v)}"
+                    android:padding="@dimen/screen_padding"
+                    android:tint="@color/colorAccent"
+                    app:srcCompat="@drawable/ic_btn_back"
+                    app:tint="@color/colorWhite" />
+
+            <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:paddingEnd="@dimen/screen_padding"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/txt_18sp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btn_delete"
+                    style="@style/toolbar_icon"
+                    android:onClick="@{(v) -> click.onClick(v)}"
+                    app:srcCompat="@drawable/ic_delete" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btn_crop"
+                    style="@style/toolbar_icon"
+                    android:onClick="@{(v) -> click.onClick(v)}"
+                    app:srcCompat="@drawable/ic_crop" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_media"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_62dp"
+                android:layout_marginBottom="@dimen/_25dp"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                android:padding="@dimen/_3dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:listitem="@layout/row_single_selection_media" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btn_send"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_12dp"
+                app:fabSize="normal"
+                android:onClick="@{(v) -> click.onClick(v)}"
+                android:backgroundTint="@color/colorPrimary"
+                app:layout_constraintBottom_toTopOf="@id/rv_media"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_send"
+                app:tint="@color/colorWhite" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,15 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="12dp"
+    android:height="@dimen/frames_video_height"
+    android:viewportWidth="44"
+    android:viewportHeight="220">
+  <path
+      android:pathData="M0,220h29c8.3,0 15,-6.7 15,-15V15c0,-8.3 -6.7,-15 -15,-15L0,0L0,220z"
+      android:fillColor="#FFFFFF"/>
+  <path
+      android:pathData="M18,126l-4,-0l0,-32l4,0z"
+      android:fillColor="#CCCCCC"/>
+  <path
+      android:pathData="M30,126l-4,-0l0,-32l4,0z"
+      android:fillColor="#CCCCCC"/>
+</vector>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+                name="header"
+                type="String" />
+    </data>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10dp"
+            android:layout_marginStart="@dimen/_1dp"
+            android:layout_marginEnd="@dimen/_1dp"
+            android:layout_marginBottom="@dimen/_5dp"
+            app:cardBackgroundColor="@color/colorWhite">
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingTop="@dimen/_12dp"
+                android:paddingBottom="@dimen/_12dp"
+                android:text="@{header}"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13dp"
+                tools:text="@string/app_name" />
+
+    </RelativeLayout>
+</layout>

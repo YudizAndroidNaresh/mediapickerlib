@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+                name="click"
+                type="android.view.View.OnClickListener" />
+
+        <variable
+                name="media"
+                type="com.mediapickerlib.modals.Img" />
+
+        <variable
+                name="isSelected"
+                type="Boolean" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+            android:id="@+id/cv_image_container"
+            android:layout_width="@dimen/_62dp"
+            android:layout_height="@dimen/_62dp"
+            android:layout_margin="@dimen/_3dp"
+            android:onClick="@{(v) -> click.onClick(v)}"
+            app:cardCornerRadius="@dimen/_3dp"
+            app:cardElevation="@dimen/_1dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_media"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:scaleType="centerCrop"
+                    android:background="@{isSelected ? @drawable/drw_selected_media : null}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:loadLocalImage="@{media.getContentUrl()}"
+                    app:srcCompat="@drawable/ic_media_placeholder"
+                    app:placeHolder="@{@drawable/ic_media_placeholder}" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_video_symbol"
+                    android:layout_width="@dimen/_15dp"
+                    android:layout_height="@dimen/_12dp"
+                    android:layout_gravity="end|bottom"
+                    android:layout_margin="@dimen/_3dp"
+                    android:background="@drawable/bg_dark"
+                    android:visibility="@{media.isVideo ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:srcCompat="@drawable/ic_video" />
+
+            <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="click"
+                type="android.view.View.OnClickListener" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_12dp"
+                tools:context=".activity.MainActivity">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_source_type"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Source Type"
+                    android:textStyle="bold"
+                    android:paddingStart="@dimen/_6dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/sp_source_type"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/array_source_type"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_source_type" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_media_type"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Media Type"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/_12dp"
+                    android:paddingStart="@dimen/_6dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sp_source_type"/>
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/sp_media_type"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/array_media_type"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_media_type" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_selection_type"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Selection Type"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/_12dp"
+                    android:paddingStart="@dimen/_6dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sp_media_type"/>
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/sp_selection_type"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/array_selection_type"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_selection_type" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_max_selection_count"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12dp"
+                    android:layout_marginStart="@dimen/_4dp"
+                    android:layout_marginEnd="@dimen/_12dp"
+                    android:hint="Enter max media selection count"
+                    android:maxLength="5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sp_selection_type" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_max_size"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4dp"
+                    android:layout_marginStart="@dimen/_4dp"
+                    android:layout_marginEnd="@dimen/_12dp"
+                    android:hint="Enter max media size"
+                    android:maxLength="9"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_max_selection_count" />
+
+            <CheckBox
+                    android:id="@+id/cb_is_crop_image"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Crop image"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_max_size" />
+
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_open_media_picker"
+                    style="@style/ButtonStyle"
+                    android:layout_marginTop="@dimen/_6dp"
+                    android:onClick="@{(v) -> click.onClick(v)}"
+                    android:text="Open media picker"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cb_is_crop_image" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_result"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btn_open_media_picker" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

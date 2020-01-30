@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="click"
+                type="android.view.View.OnClickListener" />
+
+        <variable
+                name="position"
+                type="Integer" />
+
+        <variable
+                name="media"
+                type="com.mediapickerlib.modals.Img" />
+
+        <import type="android.view.View"/>
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+            android:id="@+id/root_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_1dp"
+            app:cardCornerRadius="@dimen/_4dp"
+            android:onClick="@{(v) -> click.onClick(v)}"
+            app:cardElevation="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_preview"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_90dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:loadLocalImage="@{media.getContentUrl()}"
+                    app:placeHolder="@{@drawable/ic_media_placeholder}"
+                    tools:srcCompat="@drawable/ic_media_placeholder" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_selection_count"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_dark"
+                    android:padding="@dimen/_14dp"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_18sp"
+                    android:textColor="@color/colorWhite"
+                    android:textStyle="bold"
+                    tools:text="1"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_right" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ic_media_type"
+                    android:layout_width="@dimen/_15dp"
+                    android:layout_height="@dimen/_10dp"
+                    android:layout_margin="@dimen/_10dp"
+                    android:background="@drawable/bg_dark"
+                    android:visibility="@{media.isVideo() ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:srcCompat="@drawable/ic_video" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

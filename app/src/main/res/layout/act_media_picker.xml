@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+                name="click"
+                type="android.view.View.OnClickListener" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/root_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#80000000"
+            android:onClick="@{(v) -> click.onClick(v)}"
+            tools:context=".activity.MediaPickerAct">
+
+        <LinearLayout
+                android:id="@+id/bottom_sheet"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:behavior_hideable="true"
+                app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:background="@color/colorWhite"
+                    android:orientation="vertical">
+
+
+                <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_camera"
+                        style="@style/ButtonBorderless"
+                        android:layout_marginStart="@dimen/_13dp"
+                        android:layout_marginTop="@dimen/_26dp"
+                        android:layout_marginEnd="@dimen/_13dp"
+                        android:layout_marginBottom="@dimen/_6dp"
+                        android:onClick="@{(v) -> click.onClick(v)}"
+                        android:text="@string/select_from_camera" />
+
+                <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_gallery"
+                        style="@style/ButtonBorderless"
+                        android:layout_marginStart="@dimen/_13dp"
+                        android:layout_marginTop="@dimen/_6dp"
+                        android:layout_marginEnd="@dimen/_13dp"
+                        android:layout_marginBottom="@dimen/_26dp"
+                        android:onClick="@{(v) -> click.onClick(v)}"
+                        android:text="@string/select_from_gallery" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
